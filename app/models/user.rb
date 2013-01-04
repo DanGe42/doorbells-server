@@ -34,8 +34,10 @@ class User < ActiveRecord::Base
   end
 
   def send_message(tag, contents)
+    contents ||= ""
     msg = tag.user.messages.new(:contents => contents)
-    msg.sender_id = self.id
+    msg.tag = tag
+    msg.sender = self
 
     return msg.save
   end
