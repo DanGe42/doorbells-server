@@ -1,0 +1,14 @@
+development:
+  gcm_url: https://android.googleapis.com/gcm/send
+  gcm_sender_id: 343180867553
+  gcm_api_key: IzaSyCKuLZhhi_EBbXsUX8na9BC3GHSz9gzYN8
+
+test:
+  gcm_url: https://android.googleapis.com/gcm/send
+  gcm_sender_id: 343180867553
+  gcm_api_key: IzaSyCKuLZhhi_EBbXsUX8na9BC3GHSz9gzYN8
+
+production:
+  gcm_url: https://android.googleapis.com/gcm/send
+  gcm_sender_id: change_me
+  gcm_api_key: change_me
