@@ -28,8 +28,11 @@ class Tag < ActiveRecord::Base
     #   * Leap seconds
     #   * Clock somehow gets "reset" to some previous time in the past, allowing
     #     someone to replay past requests at the exact same times.
-    input = "#{location}#{user_id}#{Time.now.to_f}"
-    tid = Digest::SHA1.hexdigest(input)
+    sha1 = OpenSSL::Digest::SHA1.new
+    sha1 << self.location
+    sha1 << self.user_id.to_s
+    sha1 << Time.now.to_f.to_s
+    tid = sha1.hexdigest
 
     self.tid = tid
   end
