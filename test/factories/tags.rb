@@ -2,8 +2,7 @@
 
 FactoryGirl.define do
   factory :tag do
-    user nil
-    location "MyString"
-    tid "MyString"
+    user
+    location { Faker::Address.street_address }
   end
 end
