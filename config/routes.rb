@@ -24,7 +24,7 @@ Server::Application.routes.draw do
     # api/users
 
     resources :messages, :only => [:show, :index]
-    post "send", :to => "messages#send"
+    post "send", :to => "messages#send_message"
     post "messages/delete", :to => "messages#delete"
   end
 
