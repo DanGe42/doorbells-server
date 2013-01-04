@@ -1,6 +1,6 @@
 class Tag < ActiveRecord::Base
   belongs_to :user
-  has_many :messages
+  has_many :messages, :order => "created_at DESC"
 
   attr_accessible :location
 

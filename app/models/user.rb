@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   #####################################
 
   has_many :tags
-  has_many :messages
+  has_many :messages, :order => "created_at DESC"
 
   attr_accessible :display_name
   validates :display_name, :presence => true
