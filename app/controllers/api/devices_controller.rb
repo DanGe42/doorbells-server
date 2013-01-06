@@ -1,6 +1,8 @@
 class Api::DevicesController < Api::BaseController
   before_filter :verify_auth_token
 
+  # POST /api/register?id=:id
+  # Requires authorization: yes
   def register
     begin
       if @user.register_device(params[:id])
@@ -15,6 +17,8 @@ class Api::DevicesController < Api::BaseController
     end
   end
 
+  # POST /api/unregister?id=:id
+  # Requires authorization: yes
   def unregister
     begin
       if @user.unregister_device(params[:id])

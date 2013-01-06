@@ -3,6 +3,9 @@ class Api::AuthController < ApplicationController
 
   before_filter :verify_auth_token, :only => [:destroy]
 
+  # POST /api/auth
+  # Parameters: email=:email&password=:password
+  # Requires authorization: no
   def create
     email    = params[:email]
     password = params[:password]
@@ -37,6 +40,8 @@ class Api::AuthController < ApplicationController
            }
   end
 
+  # POST /api/auth/destroy
+  # Requires authorization: yes
   def destroy
     @user.reset_authentication_token!
     render json_status_response(200, "Token successfully removed")
