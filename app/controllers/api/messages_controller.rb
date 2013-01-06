@@ -41,7 +41,7 @@ class Api::MessagesController < Api::BaseController
   def show
     msg = @user.messages.find(params[:id])
     if msg.nil?
-      render json_status_response(404, "Tag not found")
+      render json_status_response(404, "Message not found")
       return
     end
 
