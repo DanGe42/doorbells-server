@@ -34,7 +34,6 @@ class Api::AuthController < ApplicationController
            :json => {
              status: 200,
              token: @user.authentication_token,
-             timestamp: Time.now.to_i
            }
   end
 

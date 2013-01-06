@@ -31,7 +31,6 @@ class Api::MessagesController < Api::BaseController
     render :status => 200,
            :json => {
              status: 200,
-             timestamp: Time.now.to_i,
              messages: msg_list
            }
   end
@@ -47,10 +46,7 @@ class Api::MessagesController < Api::BaseController
     end
 
     render :status => 200,
-           :json => msg_as_hash(msg).merge({
-                      status: 200,
-                      timestamp: Time.now.to_i
-                    })
+           :json => msg_as_hash(msg).merge(status: 200)
   end
 
   # POST /api/send?tag=:tag
@@ -97,7 +93,7 @@ class Api::MessagesController < Api::BaseController
         # TODO: picture_url
       },
       contents: msg.contents,
-      received: msg.created_at.to_i
+      timestamp: msg.created_at.to_i
     }
   end
 end

@@ -15,7 +15,6 @@ class Api::TagsController < Api::BaseController
            :json => tag_as_hash(tag).merge({
                       status: 200,
                       # TODO csrf
-                      timestamp: Time.now.to_i
                     })
   end
 
@@ -31,7 +30,6 @@ class Api::TagsController < Api::BaseController
     render :status => 200,
            :json => {
              status: 200,
-             timestamp: Time.now.to_i,
              tags: tags_list
            }
   end
@@ -45,17 +43,13 @@ class Api::TagsController < Api::BaseController
 
     if tag.save
       render :status => 200,
-             :json => tag_as_hash(tag).merge({
-                        status: 200,
-                        timestamp: Time.now.to_i
-                      })
+             :json => tag_as_hash(tag).merge(status: 200)
     else
       render :status => 400,
              :json => {
                status: 400,
                message: "Bad request",
                errors: tag.errors,
-               timestamp: Time.now.to_i
              }
     end
   end
