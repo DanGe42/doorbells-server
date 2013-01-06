@@ -38,7 +38,7 @@ class Api::AuthController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by_authentication_token(params[:id])
+    @user = User.find_by_authentication_token(params[:auth_token])
     if @user.nil?
       render json_status_response(404, "Token not found");
     else
