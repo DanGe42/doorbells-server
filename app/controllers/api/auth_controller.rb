@@ -1,6 +1,8 @@
 class Api::AuthController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
+  before_filter :verify_auth_token, :only => [:destroy]
+
   def create
     email    = params[:email]
     password = params[:password]
@@ -37,12 +39,7 @@ class Api::AuthController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by_authentication_token(params[:auth_token])
-    if @user.nil?
-      render json_status_response(404, "Token not found");
-    else
-      @user.reset_authentication_token!
-      render json_status_response(200, "Token successfully removed")
-    end
+    @user.reset_authentication_token!
+    render json_status_response(200, "Token successfully removed")
   end
 end
