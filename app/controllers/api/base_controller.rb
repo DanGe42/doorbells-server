@@ -1,6 +1,8 @@
 class Api::BaseController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
+  respond_to :json
+
   protected
 
   # Verifies an authorization token. If the token is bad, tell the client, via

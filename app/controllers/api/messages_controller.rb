@@ -1,6 +1,5 @@
 class Api::MessagesController < Api::BaseController
   before_filter :verify_auth_token
-  respond_to :json
 
   # GET /api/messages[?limit=:limit][&after=:after][&before=:before]
   # Notes: limit is 15 by default, and cannot exceed 50
