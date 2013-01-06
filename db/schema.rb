@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130102100519) do
+ActiveRecord::Schema.define(:version => 20130106230117) do
 
   create_table "messages", :force => true do |t|
     t.integer  "tag_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20130102100519) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "tags", ["tid"], :name => "index_tags_on_tid", :unique => true
   add_index "tags", ["user_id"], :name => "index_tags_on_user_id"
 
   create_table "users", :force => true do |t|
