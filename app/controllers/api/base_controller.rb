@@ -3,6 +3,12 @@ class Api::BaseController < ApplicationController
 
   respond_to :json
 
+  # Only performed if a client tries to access a nonexistent API endpoint.
+  def routing
+    logger.info "[API] Got invalid endpoint #{request.method} #{request.url}"
+    render json_status_response(400, "Invalid API endpoint")
+  end
+
   protected
 
   # Verifies an authorization token. If the token is bad, tell the client, via

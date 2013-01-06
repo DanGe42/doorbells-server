@@ -36,4 +36,7 @@ Server::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # See custom exceptions (esp. for /api endpoints)
+  # config.consider_all_requests_local = false
 end

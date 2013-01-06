@@ -26,8 +26,13 @@ Server::Application.routes.draw do
     resources :messages, :only => [:show, :index]
     post "send", :to => "messages#send_message"
     post "messages/delete", :to => "messages#delete"
+
+    match "*path", :to => "base#routing"
   end
 
+  # Once we figure out how to get custom 404 exceptions working for /api
+  # endpoints, enable something like this:
+  # match "/404", :to => "api/base#routing"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
