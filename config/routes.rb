@@ -18,8 +18,8 @@ Server::Application.routes.draw do
     post "tags/create", :to => "tags#create"
     post "tags/update", :to => "tags#update"
 
-    post "register",   :to => "devices#register"
-    post "unregister", :to => "devices#unregister"
+    post "device/register",   :to => "devices#register"
+    post "device/unregister", :to => "devices#unregister"
 
     # api/users
 
