@@ -8,7 +8,8 @@ class Api::DevicesController < Api::BaseController
       if @user.register_device(params[:id])
         render json_status_response(200, "Device registered successfully")
       else
-        render json_status_response(400, "Device not registered. " <<
+        # TODO: can device registration fail in any other way?
+        render json_status_response(200, "Device not registered. " <<
                                     "Maybe it's already registered?")
       end
     rescue Redis::CannotConnectError
