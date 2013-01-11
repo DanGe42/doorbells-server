@@ -23,8 +23,8 @@ production:
   adapter: mysql2
   encoding: utf8
   database: doorbells_prod
-  username: <%= ENV["db_user"] %>
-  password: <%= ENV["db_password"] %>
-  host: <%= ENV["db_host"] %>
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
+  host: <%= ENV["DB_HOST"] %>
   port: 3306
   timeout: 5000
