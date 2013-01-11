@@ -8,6 +8,9 @@ gem 'devise'
 # Use HAML instead of ERB for templates
 gem 'haml-rails'
 
+# Use Resque for notification job queue
+gem 'resque'
+
 gem 'mysql2', '~> 0.3'
 
 # Use redis for GCM registration tokens. Use hiredis for high performance redis

@@ -10,5 +10,6 @@ class Message < ActiveRecord::Base
   after_create :post_to_gcm
 
   def post_to_gcm
+    Resque.enqueue(Jobs::NotifyUser, self.id)
   end
 end
