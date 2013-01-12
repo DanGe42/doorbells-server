@@ -10,5 +10,5 @@ test:
 
 production:
   gcm_url: https://android.googleapis.com/gcm/send
-  gcm_sender_id: change_me
-  gcm_api_key: change_me
+  gcm_sender_id: <%= ENV["GCM_SENDER_ID"] %>
+  gcm_api_key: <%= ENV["GCM_API_KEY"] %>
