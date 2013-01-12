@@ -19,6 +19,15 @@ test:
   port: 3306
   timeout: 5000
 
+staging:
+  adapter: mysql2
+  encoding: utf8
+  database: doorbells_staging
+  username: root
+  host: localhost
+  port: 3306
+  timeout: 5000
+
 production:
   adapter: mysql2
   encoding: utf8

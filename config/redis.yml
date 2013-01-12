@@ -10,6 +10,12 @@ test:
   db: 1
   driver: :hiredis
 
+staging:
+  host: localhost
+  port: 6379
+  db: 0
+  driver: :hiredis
+
 production:
   host: <%= ENV["REDIS_HOST"] %>
   port: 6379
